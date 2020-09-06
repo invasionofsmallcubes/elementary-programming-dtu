@@ -13,4 +13,10 @@ int main(void) {
   result_denom = denom1 * denom2;
 
   printf("The sum is %d/%d\n", result_num, result_denom);
+
+  printf("Write two decimals on the floats, separated by space: ");
+  int x, y;
+  float z, w;
+  scanf("%d%d%f%f", &x, &y, &z, &w);
+  printf("\nYou wrote %d %d %f %f", x, y, z, w);
 }
