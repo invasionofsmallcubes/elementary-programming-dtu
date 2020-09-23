@@ -24,7 +24,9 @@ int main(void) {
     unsigned long inputValue;
     scanf("%lu", &inputValue);
     printf("%lu", inputValue);
-    if (inputValue <= ULONG_MAX) {
+    int numberDoesntOverflow = inputValue <= ULONG_MAX;
+    int numberIsPositive = inputValue >= 0;
+    if (numberDoesntOverflow && numberIsPositive) {
         int digitsCount = 0;
         do {
             inputValue = inputValue / 10;
