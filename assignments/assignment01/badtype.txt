@@ -1,0 +1,4 @@
+GROCERY    QUANTITY    UNITPRICE
+1          1           10.4
+4          1           10.5
+3          1           6.0

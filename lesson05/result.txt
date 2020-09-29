@@ -1,0 +1,4 @@
+CITY	AGE
+hyderbad	12
+copenhagen	25
+bangalore	65
