@@ -41,6 +41,7 @@ int main(void) {
         }
     }
     minefield[0][0] = BOMB;
+    minefield[2][2] = BOMB;
 
     boolean fogOfWar[ROW][COLUMN];
     for (int i = 0; i < ROW; i = i + 1) {
@@ -53,57 +54,51 @@ int main(void) {
 
     for (int i = 0; i < ROW; i = i + 1) {
         for (int j = 0; j < COLUMN; j = j + 1) {
-          int cellI = i;
-          int cellJ = j;
-          if(matrix[cellI][cellJ] != BOMB) {
-            int bombCounter = 0;
-            // top left is r-1 c-1
-            if(matrix[cellI-1][cellJ-1] == BOMB) {
-              bombCounter = bombCounter + 1;
+            int cellI = i;
+            int cellJ = j;
+            if (minefield[cellI][cellJ] != BOMB) {
+                printf("Current Center is (%d,%d)\n", cellI, cellJ);
+                int bombCount = 0;
+                for (int x = -1; x <= 1; x = x + 1) {
+                    for (int y = -1; y <= 1; y = y + 1) {
+                        int cellX = cellI + x;
+                        int cellY = cellJ + y;
+                        if (minefield[cellX][cellY] == BOMB && cellX > -1 && cellY > -1
+                            && cellX < ROW && cellY < COLUMN) {
+                            printf("I'm evaluating (%d, %d)\n", cellX, cellY);
+                            bombCount = bombCount + 1;
+                        }
+                    }
+                }
+                char c = '1';
+                if(bombCount > 0) {
+                  printf("%d \n", bombCount);
+                  minefield[cellI][cellJ] = '0' + bombCount ;
+                  printf("%c \n", minefield[cellI][cellJ]);
+                }
+                printf(
+                    "Current bomb count for (%d, %d) is %d\n", cellI, cellJ, bombCount);
             }
-            // top is r-1 c
-            if(matrix[cellI-1][cellJ] == BOMB) {
-              bombCounter = bombCounter + 1;
-            }
-            // top right is r-1 c+1
-            if(matrix[cellI-1][cellJ+1] == BOMB) {
-              bombCounter = bombCounter + 1;
-            }
-            // left is r c-1
-            if(matrix[cellI][cellJ-1] == BOMB) {
-              bombCounter = bombCounter + 1;
-            }
-            // right is r c+1
-            if(matrix[cellI][cellJ+1] == BOMB) {
-              bombCounter = bombCounter + 1;
-            }
-            // bottom left is r+1 c-1
-            if(matrix[cellI+1][cellJ-1] == BOMB) {
-              bombCounter = bombCounter + 1;
-            }
-            // bottom is r+1 c
-            if(matrix[cellI+1][cellJ] == BOMB) {
-              bombCounter = bombCounter + 1;
-            }
-            // bottom left is r+1 c+1
-            if(matrix[cellI+1][cellJ+1] == BOMB) {
-              bombCounter = bombCounter + 1;
-            }
-            matrix[cellI][cellJ] = bombCounter;
-          } 
         }
     }
 
-    do {
-        printMatrix(ROW, COLUMN, fogOfWar, matrix);
-        printf("Tell me row and column like this i,j : ");
-        int row;
-        int column;
-        scanf("%d,%d", &row, &column);
-        if (minefield[row][column] == BOMB) {
-            gameIsOn = FALSE;
-            printf("you lose!\n");
+    for (int i = 0; i < ROW; i = i + 1) {
+        for (int j = 0; j < COLUMN; j = j + 1) {
+            printf("%c ", minefield[i][j]);
         }
-        fogOfWar[row][column] = FALSE;
-    } while (gameIsOn);
+        printf("\n");
+    }
+
+    // do {
+    //     printMatrix(ROW, COLUMN, fogOfWar, matrix);
+    //     printf("Tell me row and column like this i,j : ");
+    //     int row;
+    //     int column;
+    //     scanf("%d,%d", &row, &column);
+    //     if (minefield[row][column] == BOMB) {
+    //         gameIsOn = FALSE;
+    //         printf("you lose!\n");
+    //     }
+    //     fogOfWar[row][column] = FALSE;
+    // } while (gameIsOn);
 }
