@@ -24,16 +24,18 @@ int main(void) {
     int  sizeOfStr1 = sizeof(str1) / sizeof(str1[0]);
     printf("size of str1: %d\n", sizeOfStr1);
 
-    // str1="abcd"; // wrong
+    //str1="abcd"; // wrong
+    char *p     = strncpy(str1, "abcd", sizeOfStr1 - 1);
+    str1[sizeOfStr1 - 1] = '\0';
 
-    char *p = safeStrncpy(str1, "abcd", sizeOfStr1 - 1);
     if (p == NULL) {
         printf("p is NULL\n");
     } else {
         printf("p is not NULL\n");
         printf("Content is: ");
         for (int i = 0; i < sizeOfStr1; i++) {
-            printf("%c", *(p + i));
+            char *k = p + i;
+            printf("%c", *k);
         }
         printf("\n");
     }
