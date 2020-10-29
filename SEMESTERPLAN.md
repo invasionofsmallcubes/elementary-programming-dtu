@@ -49,8 +49,8 @@ The plan will be updated several times. Last update October 24th 2020.
     - Chap 17 => 1, 2, 3, 4, 5
   - **Delivery of  Assignment #1**
 - Date: 04/11/2020
-  - Topics: TBA
-  - Chapters: TBA
+  - Topics: Data Structure Stack
+  - Chapters: 16
   - **Assignment #2 (will count towards the final grade)**
 - Date: 11/11/2020
   - Topics: TBA

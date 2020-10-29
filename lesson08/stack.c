@@ -9,9 +9,6 @@ int main(void) {
         printf("memory could not be allocated\n");
         exit(EXIT_FAILURE);
     }
-    for (int i = 0; i < 15; i++) {
-        printf("%d\n", arr[i]);
-    }
     for (int i = 0; i < size; i++) {
         arr[i] = i;
     }
@@ -24,13 +21,6 @@ int main(void) {
         printf("memory could not be allocated\n");
         exit(EXIT_FAILURE);
     }
-    int *newArrL = calloc(5, sizeof(int));
-    if (newArrL == NULL) {
-        printf("memory could not be allocated\n");
-        exit(EXIT_FAILURE);
-    }
-    // do your think
-    free(newArrL);
     int d;
     printf("Check the memory of the process\n");
     scanf("%d", &d);
@@ -39,4 +29,7 @@ int main(void) {
     }
     free(newArr);
     //free(arr);
+    for (int i = 0; i < 15; i++) {
+        printf("%d\n", newArr[i]);
+    }
 }
