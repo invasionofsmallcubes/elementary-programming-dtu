@@ -1,80 +1,89 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct Node {
-    int          value;
-    struct Node *next;
-    struct Node *previous;
+struct Element {
+    int             value;
+    struct Element *next;
+    struct Element *previous;
 };
 
-typedef struct Node Node;
+typedef struct Element Element;
 /* 
   I need to do this because C does't support something like
-  deftype struct Node {
+  deftype struct Element {
     int   value;
-    Node *next;
-    Node *previous;
+    Element *next;
+    Element *previous;
   };
 */
 
 typedef struct {
-    struct Node *currentNode;
-    struct Node *firstNode;
+    struct Element *currentElement;
+    struct Element *firstElement;
 } Stack;
 
-Node *createNode(int n) {
-    Node *node = malloc(sizeof(Node));
-    if (node == NULL) {
-        printf("Something wrong while creating a new node\n");
+Element *createElement(int n) {
+    Element *Element = malloc(sizeof(Element));
+    if (Element == NULL) {
+        printf("Something wrong while creating a new Element\n");
         exit(EXIT_FAILURE);
     }
-    node->value = n; // same as (*nsode).value = n;
-    return node;
+    Element->value = n; // same as (*nsode).value = n;
+    return Element;
 }
 
 Stack *createStack(int n) {
-    Node * node  = createNode(n);
-    Stack *stack = malloc(sizeof(Stack));
+    Element *Element = createElement(n);
+    Stack *  stack   = malloc(sizeof(Stack));
     if (stack == NULL) {
         printf("Something wrong while creating a new stack\n");
         exit(EXIT_FAILURE);
     }
-    stack->currentNode = node;
-    stack->firstNode   = node;
+    stack->currentElement = Element;
+    stack->firstElement   = Element;
     return stack;
 }
 
-Node *push(Stack *stack, int n) {
-    Node *newNode            = createNode(n);
-    stack->currentNode->next = newNode;
-    newNode->previous        = stack->currentNode;
-    stack->currentNode       = newNode;
-    return newNode;
+Element *push(Stack *stack, int n) {
+    Element *newElement         = createElement(n);
+    stack->currentElement->next = newElement;
+    newElement->previous        = stack->currentElement;
+    stack->currentElement       = newElement;
+    return newElement;
 }
 
-Node *pop(Stack *stack) {
-    Node *poppedValue        = stack->currentNode;
-    stack->currentNode       = poppedValue->previous;
-    stack->currentNode->next = NULL;
+Element *pop(Stack *stack) {
+    if (stack->currentElement == NULL) {
+        return NULL;
+    }
+    Element *poppedValue        = stack->currentElement;
+    stack->currentElement       = poppedValue->previous;
+    stack->currentElement->next = NULL;
+    poppedValue->previous       = NULL;
     return poppedValue;
 }
-void printNode(Node* node){
-  printf("Node value is %d\n", node->value);
+
+void printElement(Element *element) {
+    if (element == NULL) {
+        printf("Element is NULL");
+    } else {
+        printf("Element value is %d\n", element->value);
+    }
 }
 
 void printStack(Stack *stack) {
-    Node *currentNode = stack->firstNode;
-    while (currentNode != NULL) {
-        if (stack->currentNode == currentNode) {
-            printf("(%d) <-- stack pointer\n", currentNode->value);
+    Element *currentElement = stack->firstElement;
+    while (currentElement != NULL) {
+        if (stack->currentElement == currentElement) {
+            printf("(%d) <-- stack pointer\n", currentElement->value);
         } else {
-            printf("(%d)\n", currentNode->value);
+            printf("(%d)\n", currentElement->value);
         }
         printf("| |\n");
-        if (currentNode->next == NULL) {
+        if (currentElement->next == NULL) {
             printf("NULL\n");
         }
-        currentNode = currentNode->next;
+        currentElement = currentElement->next;
     }
 }
 
@@ -89,8 +98,8 @@ int main(void) {
     push(stack, 5);
     printStack(stack);
     printf("\npop(stack)\n");
-    Node* node = pop(stack);
-    printNode(node);
-    free(node);
+    Element *element = pop(stack);
+    printElement(element);
+    free(element);
     printStack(stack);
 }
