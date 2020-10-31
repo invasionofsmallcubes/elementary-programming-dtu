@@ -89,5 +89,20 @@ Notice how upper case characters are kept in their uppercase format. (Remember h
 ```
 $ ./caesar
 put key: -13
+plaintext: sdfjhjksdfjskkdsfk dkshf kdjskfhsjkdf sdjkfhksd fdjksfhds jkfkjd
+ERROR: max 100 chars allowed
+```
+
+Remember the chapter on Strings tells you how to avoid buffer overflow of the input stream. This is a bonus task to solve.
+
+### Extra task
+
+```
+$ ./caesar
+put key: 13
 ERROR: you cannot use negative key
 ```
+
+## Delivery of the code
+
+Deliver the source file on the assignment on DTU Inside by $date.
