@@ -26,7 +26,7 @@ Shift:   +1 +1 +1 +1 +1
 Result:  I  F  M  M  P
 ```
 
-More formally, Caesar’s algorithm (or cipher) encrypts messages by “rotating” each letter by k positions. More formally, if p is some plaintext (i.e., an unencrypted message), pi is the ith character in p, and k is a secret key (i.e., a non-negative integer), then each letter, ci, in the ciphertext, c, is computed as
+Caesar’s algorithm (or cipher) encrypts messages by “rotating” each letter by k positions. More formally, if p is some plaintext (i.e., an unencrypted message), pi is the ith character in p, and k is a secret key (i.e., a non-negative integer), then each letter, ci, in the ciphertext, c, is computed as
 
 `ci = (pi + k) % 26`
 
@@ -47,7 +47,7 @@ So:
 
 As you can see we are *rotating* on the six faces mapped to the values 0, 1, 2, 3, 4 and 5.
 
-So if we do `ci = (pi + k) % 26` it means that if we use an encryption key greater than 26, we will still have a result between 0 and 25, meaning we will stay in the boundaries of our alphabet.
+So if we do `ci = (pi + k) % 26` it means that if we use an encryption key greater than 26, we will still have a result between 0 and 25, meaning we will stay in the boundaries of our alphabet. Check *Acceptance Criteria 3* for more details. 
 
 ## Acceptance criterias
 
@@ -58,8 +58,8 @@ These are the acceptance criteria that your code needs to pass for the assignmen
 ```
 $ ./caesar
 put key: 1
-put plaintext:  HELLO
-ciphertext is: IFMMP
+put plaintext:  hello
+ciphertext is: ifmmp
 ```
 
 ### Acceptance Criteria 1
@@ -82,27 +82,37 @@ plaintext:  be sure to drink your Ovaltine
 ciphertext: or fher gb qevax lbhe Binygvar
 ```
 
-Notice how upper case characters are kept in their uppercase format. (Remember how the ASCII table works? If not you can find on this repository some examples, but remember that **char** is actually an **int** and for normal letters, you can use the ASCII table mapping to do the `ci = (pi + k) % 26` )
+Notice how upper case characters are kept in their uppercase format. 
+
+Some thoughts: remember how the [ASCII table](http://www.asciitable.com/) works? If not you can find on this repository some examples, but remember that **char** is actually an **int** and for normal letters, you can use the ASCII table mapping to do the `ci = (pi + k) % 26`.
+
+Probably `pi`, in terms of ASCII table, it's not exactly `pi` but `pi - some initial char`, maybe?
+
+Remember that for example *a* is equal to 97, so to calculate the correct rotation, for *a* `pi` needs to be 0, for *b* needs pi needs to be 1 and so on.
 
 ### Acceptance Criteria 4
 
 ```
 $ ./caesar
 put key: -13
-plaintext: sdfjhjksdfjskkdsfk dkshf kdjskfhsjkdf sdjkfhksd fdjksfhds jkfkjd
-ERROR: max 100 chars allowed
+ERROR: you cannot use negative key
 ```
-
-Remember the chapter on Strings tells you how to avoid buffer overflow of the input stream. This is a bonus task to solve.
 
 ### Extra task
 
 ```
 $ ./caesar
 put key: 13
-ERROR: you cannot use negative key
+plaintext: sdfjhjksdfjskkdsfk dkshf kdjskfhsjkdf sdjkfhksd fdjksfhds jkfkjd
+ERROR: max 100 chars allowed
 ```
+
+Remember the chapter on Strings tells you how to avoid buffer overflow of the input stream. This is a bonus task.
 
 ## Delivery of the code
 
-Deliver the source file on the assignment on DTU Inside by $date.
+You need to deliver the a source file called `caesar.c` where the 4 acceptance criteria are satisfied.
+
+You can use the Extra task to satisfy a missing acceptance criteria.
+
+I hope you enjoy the assignment, I had fun implementing it myself.
