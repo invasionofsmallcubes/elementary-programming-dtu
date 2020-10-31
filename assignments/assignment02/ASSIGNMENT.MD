@@ -51,7 +51,7 @@ So if we do `ci = (pi + k) % 26` it means that if we use an encryption key great
 
 ## Acceptance criterias
 
-These are the acceptance criteria that your code needs to pass to be successful:
+These are the acceptance criteria that your code needs to pass for the assignment to be successful:
 
 ### Acceptance Criteria 1
 
