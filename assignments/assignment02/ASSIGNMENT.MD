@@ -32,7 +32,7 @@ Caesar’s algorithm (or cipher) encrypts messages by “rotating” each letter
 
 wherein % 26 here means "remainder when dividing by 26". There is for doing this is that the alphabet has 26 letters and when you use the remainder you can basically rotate.
 
-### Rotation example - Launching a dice with C
+### Rotation example - Rolling a dice with C
 
 For example if you want to simulate a dice in C what you can do is extracting a totally random number like 1450, and then use the reminder operation with 6 (the number of the faces of a commond dice, if you play Dungeons and Dragons you can have a dice with 20 faces and the procedure would be the same).
 
@@ -104,7 +104,7 @@ ERROR: you cannot use negative key
 $ ./caesar
 put key: 13
 plaintext: sdfjhjksdfjskkdsfk dkshf kdjskfhsjkdf sdjkfhksd fdjksfhds jkfkjd
-ERROR: max 100 chars allowed
+ERROR: max 64 chars allowed
 ```
 
 Remember the chapter on Strings tells you how to avoid buffer overflow of the input stream. This is a bonus task.
