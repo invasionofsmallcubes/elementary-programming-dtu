@@ -63,7 +63,7 @@ Thus, encrypting a piece of text.
 
 This is a verbose example, outputting all steps of the encryption:
 
-![alt text](image.jpg?raw=true)
+![alt text](image.png?raw=true)
 
 ## Bonus tasks (These are NOT mandatory)
 
