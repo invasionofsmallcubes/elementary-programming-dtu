@@ -72,18 +72,18 @@ void printElement(Element *element) {
 }
 
 void printStack(Stack *stack) {
-    Element *currentElement = stack->firstElement;
-    while (currentElement != NULL) {
-        if (stack->currentElement == currentElement) {
-            printf("(%d) <-- stack pointer\n", currentElement->value);
+    Element *whatever = stack->firstElement;
+    while (whatever != NULL) {
+        if (whatever == stack->currentElement) {
+            printf("(%d) <-- stack pointer\n", whatever->value);
         } else {
-            printf("(%d)\n", currentElement->value);
+            printf("(%d)\n", whatever->value);
         }
         printf("| |\n");
-        if (currentElement->next == NULL) {
+        if (whatever->next == NULL) {
             printf("NULL\n");
         }
-        currentElement = currentElement->next;
+        whatever = whatever->next;
     }
 }
 

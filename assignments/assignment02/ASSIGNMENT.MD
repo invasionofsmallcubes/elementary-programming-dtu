@@ -47,7 +47,7 @@ All groups must be filled, so if the last group is incomplete, the function shou
 
 Examples:
 
-- **HELLOWORLD** with groups of 2 turns into **HE LL OW WO RL Dx**
+- **HELLOWORLD** with groups of 2 turns into **HE LL OW OR LD**
 - **DTUELEKTRO** with groups of 3 turns into **DTU ELE KTR Oxx**
 - **RAMMSTEIN** with groups of 4 turn into **RAMM STEI Nxx**
 - **BOB** with groups of 5 turn into **BOBxx**
@@ -55,10 +55,12 @@ Examples:
 ## Combining everything
 
 These four functions can now be combined into a single function, which:
-• Normalizes an input string
-• Obfuscates the normalized string
-• Applies the Caesar cipher to the obfuscated string
-• Splits the ciphered string into code groups and output the resulting string.
+
+- Normalizes an input string
+- Obfuscates the normalized string
+- Applies the Caesar cipher to the obfuscated string
+- Splits the ciphered string into code groups and output the resulting string.
+
 Thus, encrypting a piece of text.
 
 This is a verbose example, outputting all steps of the encryption:
@@ -69,6 +71,5 @@ This is a verbose example, outputting all steps of the encryption:
 
 - *Try creating a function for decrypting the encrypted text.
 - *Try creating a function that can decrypt the encrypted text without knowing the Caesar key nor code group size.
-- Modify the functions so that they also accept numbers.
 
 * *Decryption can only reasonably expect to return the normalized text, since spaces, numbers and special characters have been deleted.*
