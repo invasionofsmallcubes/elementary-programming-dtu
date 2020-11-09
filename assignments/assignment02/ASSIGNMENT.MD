@@ -73,3 +73,7 @@ This is a verbose example, outputting all steps of the encryption:
 - *Try creating a function that can decrypt the encrypted text without knowing the Caesar key nor code group size.
 
 * *Decryption can only reasonably expect to return the normalized text, since spaces, numbers and special characters have been deleted.*
+
+## Evaluation of the assignment
+
+You will have a meeting (in person or online) with me or the TAs where you need to explain your code and we will run the examples.
