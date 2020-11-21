@@ -56,13 +56,12 @@ The plan will be updated several times. Last update October 24th 2020.
   - Topics: The Preprocessors, Writing Large Programs, Declarations
   - Chapters: 14, 15, 18
 - Date: 18/11/2020
-  - Topics: TBA
-  - Chapters: TBA
+  - Topics: Bitwise Operators
+  - Chapters: 20
   - **Delivery of  Assignment #2**
 - Date: 25/11/2020
-  - Topics: TBA
-  - Chapters: TBA
+  - Topics: Recap of Functions, Pointers and Struct
+  - Chapters: 9, 11, 12, 16, 17
 - Date: 02/12/2020
-  - Topics: TBA
-  - Chapters: TBA
+  - Topics: Some old exams review
   
