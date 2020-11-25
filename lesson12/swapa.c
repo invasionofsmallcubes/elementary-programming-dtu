@@ -15,7 +15,10 @@ int main() {
 
 void swap(int *x, int *y) {
     int temp;
-    temp = *x;   /* save the value at address x */
+    temp = *x;
+    if(temp == 100) {
+      printf("Hello I'm 100\n");
+    }   /* save the value at address x */
     *x   = *y;   /* put y into x */
     *y   = temp; /* put temp into y */
     return;
